@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Innovation Challenge | Play. Create. Discover Our Heritage.</title>
+  <meta name="description" content="Design and explore unique toys and games inspired by world civilization, history, culture, traditions, and heritage. Make cultural learning fun, interactive, and creative!">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo" onclick="window.switchTab('home'); return false;">
+        <div class="logo-icon">🏺</div>
+        <div class="logo-text">
+          <span>Student Innovation</span>
+          <span class="logo-tagline">Heritage Toy Challenge</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="mainNavLinks">
+        <a href="#" class="nav-link active" data-tab="home">Home</a>
+        <a href="#" class="nav-link" data-tab="explore">Explore Ideas</a>
+        <a href="#" class="nav-link" data-tab="submit">Submit Challenge</a>
+        <a href="#" class="nav-link" data-tab="quests">Quests & Games</a>
+        <a href="#" class="nav-link" data-tab="leaderboard">Leaderboard</a>
+        <a href="#" class="nav-link" data-tab="dashboard">My Dashboard</a>
+      </nav>
+
+      <div class="nav-right-actions">
+        <div class="points-ticker" title="Your Heritage Innovation Points">
+          <span>⭐️</span>
+          <span id="headerPointsCount">450</span> Pts
+        </div>
+        <button class="btn btn-sm btn-primary" onclick="window.switchTab('submit')">
+          + Submit Idea
+        </button>
+        <button class="mobile-toggle" id="mobileNavToggle">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main id="appMain">
+
+    <!-- 1. HOME PAGE -->
+    <section id="page-home" class="app-page active">
+      <div class="hero-section">
+        <canvas id="heroCanvas"></canvas>
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="hero-tagline-badge">
+              <span>🌟 National Student Innovation Challenge</span>
+            </div>
+            <h1 class="hero-title">
+              Play. Create.<br>
+              <span>Discover Our Heritage.</span>
+            </h1>
+            <p class="hero-description">
+              Transform ancient history, rich cultures, classical myths, and traditional folklore into fun, interactive, modern toys and games. Inspire the next generation through creative play!
+            </p>
+
+            <div class="hero-cta-group">
+              <button class="btn btn-primary" onclick="window.switchTab('submit')">
+                🚀 Start Creating
+              </button>
+              <button class="btn btn-outline" style="border-color: #FFF; color: #FFF;" onclick="window.switchTab('explore')">
+                💡 Explore Toy Concepts
+              </button>
+              <button class="btn btn-accent" onclick="window.switchTab('quests')">
+                🎮 Try Cultural Quests
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-stats-banner">
+            <div class="hero-stat-card">
+              <div class="stat-number">1,420+</div>
+              <div class="stat-label">Toy Concepts Created</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="stat-number">48</div>
+              <div class="stat-label">Historic Civilizations</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="stat-number">95%</div>
+              <div class="stat-label">Student Engagement</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURES / WHY PARTICIPATE -->
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Turn Culture into Play</span>
+          <h2 class="section-title">Why Join the Heritage Innovation Challenge?</h2>
+        </div>
+
+        <div class="ideas-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+          <div class="idea-card text-center" style="padding: 32px;">
+            <div style="font-size: 3rem; margin-bottom: 16px;">📜</div>
+            <h3>Explore Deep Lore</h3>
+            <p style="color: var(--text-muted); margin-top: 8px;">Uncover ancient games like Egyptian Senet, Harappan water channels, and Silk Road trade routes.</p>
+          </div>
+          <div class="idea-card text-center" style="padding: 32px;">
+            <div style="font-size: 3rem; margin-bottom: 16px;">🎨</div>
+            <h3>Design & Prototype</h3>
+            <p style="color: var(--text-muted); margin-top: 8px;">Use our 4-step wizard with live visual card previewing to turn your unique idea into a published blueprint.</p>
+          </div>
+          <div class="idea-card text-center" style="padding: 32px;">
+            <div style="font-size: 3rem; margin-bottom: 16px;">🧩</div>
+            <h3>Interactive Quests</h3>
+            <p style="color: var(--text-muted); margin-top: 8px;">Complete daily trivia quests and solve ancient artifact board puzzles to earn points and exclusive badges.</p>
+          </div>
+          <div class="idea-card text-center" style="padding: 32px;">
+            <div style="font-size: 3rem; margin-bottom: 16px;">🏆</div>
+            <h3>Earn Certificates</h3>
+            <p style="color: var(--text-muted); margin-top: 8px;">Rank on global leaderboards and generate official printable Heritage Innovator certificates.</p>
+          </div>
+        </div>
+
+        <!-- HOME FEATURED TEASER -->
+        <div class="section-header text-center" style="margin-top: 80px;">
+          <span class="section-subtitle">Student Spotlight</span>
+          <h2 class="section-title">Featured Heritage Toys & Games</h2>
+        </div>
+
+        <div class="text-center" style="margin-bottom: 24px;">
+          <button class="btn btn-primary" onclick="window.switchTab('explore')">
+            Browse All 50+ Toy Blueprints 🚀
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. EXPLORE IDEAS PAGE -->
+    <section id="page-explore" class="app-page">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Cultural Blueprint Showcase</span>
+          <h2 class="section-title">Explore Creative Toys & Games</h2>
+        </div>
+
+        <!-- FILTER BAR -->
+        <div class="filter-container">
+          <div class="filter-row">
+            <div class="filter-pills">
+              <button class="filter-pill active" data-category="All">All Categories</button>
+              <button class="filter-pill" data-category="History">History</button>
+              <button class="filter-pill" data-category="Culture">Culture</button>
+              <button class="filter-pill" data-category="Civilization">Civilization</button>
+              <button class="filter-pill" data-category="Art">Art</button>
+              <button class="filter-pill" data-category="Traditions">Traditions</button>
+            </div>
+
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="searchIdeas" placeholder="Search by civilization, toy name, or author...">
+            </div>
+          </div>
+
+          <div class="filter-row">
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <label style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted);">Age Group:</label>
+              <select id="filterAge" class="select-control">
+                <option value="All">All Ages</option>
+                <option value="6-9">Ages 6-9</option>
+                <option value="10-14">Ages 10-14</option>
+                <option value="15+">Ages 15+</option>
+              </select>
+            </div>
+
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <label style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted);">Sort By:</label>
+              <select id="filterSort" class="select-control">
+                <option value="featured">🌟 Featured & Top</option>
+                <option value="likes">❤️ Most Liked</option>
+                <option value="newest">✨ Newest First</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- IDEAS GRID -->
+        <div id="ideasGrid" class="ideas-grid">
+          <!-- Dynamic Cards Rendered by gallery.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. INNOVATION CHALLENGE SUBMISSION WIZARD PAGE -->
+    <section id="page-submit" class="app-page">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Student Creator Portal</span>
+          <h2 class="section-title">Design & Submit Your Toy Concept</h2>
+        </div>
+
+        <div class="wizard-container">
+          <div class="wizard-header-bg">
+            <h2>Innovation Challenge Form</h2>
+            <p>Turn history & culture into an awesome game! Step-by-step wizard with live blueprint preview.</p>
+          </div>
+
+          <div class="wizard-steps-bar">
+            <div class="wizard-step-indicator active">
+              <span class="step-num">1</span>
+              <span>Identity</span>
+            </div>
+            <div class="wizard-step-indicator">
+              <span class="step-num">2</span>
+              <span>Rules</span>
+            </div>
+            <div class="wizard-step-indicator">
+              <span class="step-num">3</span>
+              <span>Learning</span>
+            </div>
+            <div class="wizard-step-indicator">
+              <span class="step-num">4</span>
+              <span>Visuals</span>
+            </div>
+          </div>
+
+          <div class="wizard-body-layout">
+            <form id="innovationForm" onsubmit="return false;">
+              <!-- STEP 1: IDENTITY -->
+              <div class="wizard-step-panel active">
+                <div class="form-group">
+                  <label for="toyName">Toy / Game Title *</label>
+                  <input type="text" id="toyName" class="form-control" placeholder="e.g. Maya Sun Cipher Wheel" required>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                  <div class="form-group">
+                    <label for="authorName">Student Innovator Name *</label>
+                    <input type="text" id="authorName" class="form-control" placeholder="Your Full Name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="schoolName">School / Organization</label>
+                    <input type="text" id="schoolName" class="form-control" placeholder="e.g. Heritage High School">
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                  <div class="form-group">
+                    <label for="toyCategory">Category *</label>
+                    <select id="toyCategory" class="form-control">
+                      <option value="History">History</option>
+                      <option value="Culture">Culture</option>
+                      <option value="Civilization">Civilization</option>
+                      <option value="Art">Art</option>
+                      <option value="Traditions">Traditions</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="toyAgeGroup">Target Age Group</label>
+                    <select id="toyAgeGroup" class="form-control">
+                      <option value="6-9">Ages 6-9</option>
+                      <option value="10-14" selected>Ages 10-14</option>
+                      <option value="15+">Ages 15+</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                  <div class="form-group">
+                    <label for="toyCulture">Inspired Culture / Region *</label>
+                    <input type="text" id="toyCulture" class="form-control" placeholder="e.g. Ancient Egypt, West Africa, Japan" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="toyEra">Historical Era / Period</label>
+                    <input type="text" id="toyEra" class="form-control" placeholder="e.g. Bronze Age (c. 2000 BC)">
+                  </div>
+                </div>
+
+                <div class="wizard-actions">
+                  <div></div>
+                  <button type="button" class="btn btn-primary btn-next-step">Next: Game Mechanics ➡️</button>
+                </div>
+              </div>
+
+              <!-- STEP 2: GAMEPLAY & RULES -->
+              <div class="wizard-step-panel">
+                <div class="form-group">
+                  <label for="toySummary">Short Summary Concept *</label>
+                  <textarea id="toySummary" class="form-control" placeholder="Describe how the toy works, its story, and main fun element..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="toyMaterials">Materials & Components Needed</label>
+                  <input type="text" id="toyMaterials" class="form-control" placeholder="Separate with commas: Recycled Wood, Paper Cards, Clay Tokens">
+                </div>
+
+                <div class="form-group">
+                  <label for="toyRules">How to Play / Gameplay Rules *</label>
+                  <textarea id="toyRules" class="form-control" placeholder="Write step-by-step rules (one rule per line)..." required></textarea>
+                </div>
+
+                <div class="wizard-actions">
+                  <button type="button" class="btn btn-outline btn-prev-step">⬅️ Back</button>
+                  <button type="button" class="btn btn-primary btn-next-step">Next: Learning Value ➡️</button>
+                </div>
+              </div>
+
+              <!-- STEP 3: EDUCATIONAL OBJECTIVE -->
+              <div class="wizard-step-panel">
+                <div class="form-group">
+                  <label for="toyLearning">Educational & Learning Objectives</label>
+                  <textarea id="toyLearning" class="form-control" placeholder="What skills does this toy teach? (e.g. Math probability, Spatial reasoning, Cultural mythology)..."></textarea>
+                </div>
+
+                <div class="wizard-actions">
+                  <button type="button" class="btn btn-outline btn-prev-step">⬅️ Back</button>
+                  <button type="button" class="btn btn-primary btn-next-step">Next: Visual Styling ➡️</button>
+                </div>
+              </div>
+
+              <!-- STEP 4: VISUAL STYLING & ICON -->
+              <div class="wizard-step-panel">
+                <input type="hidden" id="selectedToyIcon" value="chess-board">
+                <input type="hidden" id="selectedColorTheme" value="gold">
+
+                <div class="form-group">
+                  <label>Select Toy Avatar Icon:</label>
+                  <div class="icon-picker-grid">
+                    <div class="icon-option selected" data-icon="chess-board">♟️</div>
+                    <div class="icon-option" data-icon="droplet">💧</div>
+                    <div class="icon-option" data-icon="map-pin">🐫</div>
+                    <div class="icon-option" data-icon="shapes">📐</div>
+                    <div class="icon-option" data-icon="sun">🌞</div>
+                    <div class="icon-option" data-icon="smile">🎭</div>
+                    <div class="icon-option" data-icon="grid">🐚</div>
+                    <div class="icon-option" data-icon="compass">🏛️</div>
+                    <div class="icon-option" data-icon="dice">🎲</div>
+                    <div class="icon-option" data-icon="puzzle">🧩</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Select Card Visual Palette:</label>
+                  <div class="theme-picker-row">
+                    <div class="theme-option theme-gold selected" data-theme="gold" title="Pharaoh Gold"></div>
+                    <div class="theme-option theme-terracotta" data-theme="terracotta" title="Terracotta Clay"></div>
+                    <div class="theme-option theme-crimson" data-theme="crimson" title="Silk Crimson"></div>
+                    <div class="theme-option theme-purple" data-theme="purple" title="Imperial Purple"></div>
+                    <div class="theme-option theme-emerald" data-theme="emerald" title="Jade Emerald"></div>
+                  </div>
+                </div>
+
+                <div class="wizard-actions">
+                  <button type="button" class="btn btn-outline btn-prev-step">⬅️ Back</button>
+                  <button type="submit" class="btn btn-accent">Publish Toy Blueprint 🚀 (+100 Pts)</button>
+                </div>
+              </div>
+            </form>
+
+            <!-- LIVE CARD PREVIEW PANEL -->
+            <div class="live-preview-box">
+              <div class="preview-title-bar">
+                <span>✨ Live Blueprint Card Preview</span>
+              </div>
+
+              <div class="idea-card">
+                <div id="previewCardVisual" class="card-header-visual theme-gold">
+                  <div id="previewCardCulture" class="card-culture-tag">Ancient Culture</div>
+                  <div id="previewCardIcon" class="card-icon">♟️</div>
+                  <div id="previewCardCategory" class="card-category-badge badge-history">History</div>
+                </div>
+
+                <div class="card-body">
+                  <div class="card-meta">
+                    <span id="previewCardAge">👶 Age 10-14</span>
+                    <span id="previewCardEra">📜 Era</span>
+                  </div>
+
+                  <h3 id="previewCardTitle" class="card-title">Your Toy Title</h3>
+                  <p id="previewCardAuthor" class="card-author">By <strong>Student Innovator</strong> (School)</p>
+                  <p id="previewCardSummary" class="card-summary">Your creative toy concept overview will update here live as you fill in the wizard.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. QUESTS & MINI-GAMES PAGE -->
+    <section id="page-quests" class="app-page">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Interactive Cultural Learning</span>
+          <h2 class="section-title">Heritage Quests & Mini-Games</h2>
+        </div>
+
+        <div class="quests-grid">
+          <!-- HERITAGE QUIZ -->
+          <div id="quizContainer">
+            <!-- Quiz rendered dynamically by miniGames.js -->
+          </div>
+
+          <!-- ANCIENT ARTIFACT BOARD BUILDER -->
+          <div class="mini-game-card">
+            <div class="quiz-header">
+              <span class="quiz-progress-badge">Mini-Game Workshop</span>
+              <span class="quiz-score-badge">Reward: +50 Pts</span>
+            </div>
+            <h3 class="quiz-question">Ancient Artifact Tile Board Builder</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              Click adjacent tiles to swap their positions. Match each ancient artifact symbol to its correct archaeological slot!
+            </p>
+
+            <div id="artifactGameGrid" class="artifact-grid-layout">
+              <!-- Rendered by miniGames.js -->
+            </div>
+
+            <div id="artifactWinMessage" class="victory-banner hidden">
+              🎉 Congratulations! Artifact Board Successfully Assembled! Unlocked "Artifact Master Craftsman" Badge! (+50 Pts)
+            </div>
+
+            <div style="margin-top: 20px; text-align: right;">
+              <button class="btn btn-sm btn-outline" id="btnResetArtifactGame">Reset Tiles 🔄</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. LEADERBOARD PAGE -->
+    <section id="page-leaderboard" class="app-page">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Hall of Innovation Champions</span>
+          <h2 class="section-title">Student Leaderboard</h2>
+        </div>
+
+        <div class="leaderboard-card">
+          <div class="lb-toolbar">
+            <div class="lb-tabs">
+              <button class="lb-tab-btn active" data-tab="allTime">All-Time Champions</button>
+              <button class="lb-tab-btn" data-tab="weekly">Top This Week</button>
+            </div>
+
+            <div class="search-box" style="max-width: 300px;">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="searchLeaderboard" placeholder="Search student name or school...">
+            </div>
+          </div>
+
+          <table class="lb-table">
+            <thead>
+              <tr>
+                <th style="width: 80px;">Rank</th>
+                <th>Student Innovator</th>
+                <th>Top Toy Concept</th>
+                <th class="center-cell">Upvotes</th>
+                <th class="center-cell">Badges</th>
+                <th class="right-cell">Points</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardTableBody">
+              <!-- Rendered dynamically by leaderboard.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. STUDENT DASHBOARD PAGE -->
+    <section id="page-dashboard" class="app-page">
+      <div class="container">
+        <!-- HEADER PROFILE -->
+        <div class="dashboard-header-card">
+          <div class="profile-main-flex">
+            <div class="profile-avatar-box">🚀</div>
+            <div class="profile-info">
+              <h2 id="dashStudentName">Alex Innovator</h2>
+              <div id="dashStudentSchool" style="color: #CBD5E1;">Global Heritage Academy</div>
+              <div id="dashRankTitle" class="profile-rank">👑 Master Heritage Innovator</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+            <div class="dash-stats-row">
+              <div class="dash-stat-item">
+                <div id="dashPointsCount" class="dash-stat-num">450</div>
+                <div class="dash-stat-lbl">Points</div>
+              </div>
+            </div>
+            <button class="btn btn-sm btn-outline" style="border-color: #FFF; color: #FFF;" id="btnEditProfile">Edit Profile ✏️</button>
+            <button class="btn btn-sm btn-accent" id="btnViewCertificate">View Certificate 📜</button>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px;">
+          <!-- MY SUBMISSIONS -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <h3>My Published Toy Concepts</h3>
+              <button class="btn btn-sm btn-primary" onclick="window.switchTab('submit')">+ New Toy Idea</button>
+            </div>
+            <div id="dashSubmissionsList" style="display: flex; flex-direction: column; gap: 16px;">
+              <!-- Rendered by dashboard.js -->
+            </div>
+          </div>
+
+          <!-- BOOKMARKS & SAVED IDEAS -->
+          <div>
+            <h3 style="margin-bottom: 16px;">Saved Bookmarked Concepts</h3>
+            <div id="dashBookmarksGrid" style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <!-- Rendered by dashboard.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- BADGES GALLERY -->
+        <div style="margin-top: 60px;">
+          <h3>My Heritage Badges & Achievements</h3>
+          <div id="dashBadgesGrid" class="badges-grid">
+            <!-- Rendered by dashboard.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODALS SYSTEM -->
+  <!-- 1. BLUEPRINT DETAIL MODAL -->
+  <div id="blueprintModal" class="modal">
+    <div class="modal-content" style="max-width: 900px;">
+      <button class="close-modal">&times;</button>
+      <div id="blueprintModalContent">
+        <!-- Filled by gallery.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. EDIT PROFILE MODAL -->
+  <div id="editProfileModal" class="modal">
+    <div class="modal-content" style="max-width: 500px; padding: 32px;">
+      <button class="close-modal">&times;</button>
+      <h3 style="margin-bottom: 20px;">Edit Student Profile</h3>
+      <div class="form-group" style="margin-bottom: 16px;">
+        <label for="editStudentName">Student Name:</label>
+        <input type="text" id="editStudentName" class="form-control">
+      </div>
+      <div class="form-group" style="margin-bottom: 24px;">
+        <label for="editSchoolName">School / Organization:</label>
+        <input type="text" id="editSchoolName" class="form-control">
+      </div>
+      <div style="text-align: right;">
+        <button class="btn btn-primary" id="btnSaveProfile">Save Changes ✨</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. CERTIFICATE MODAL -->
+  <div id="certificateModal" class="modal">
+    <div class="modal-content" style="max-width: 760px; background: transparent; box-shadow: none;">
+      <button class="close-modal" style="color: #FFF; background: rgba(0,0,0,0.5);">&times;</button>
+      <div class="certificate-frame">
+        <div class="cert-header">Student Innovation Challenge</div>
+        <div class="cert-sub">Certificate of Cultural Heritage Achievement</div>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">This official certificate is proudly presented to:</p>
+
+        <div id="certStudentName" class="cert-name">Alex Innovator</div>
+        <p id="certSchoolName" style="font-weight: 700; color: var(--color-lapis);">Global Heritage Academy</p>
+
+        <p style="font-size: 0.95rem; margin: 20px 0 10px; color: #475569;">
+          For outstanding creativity, historical research, and game design excellence in creating unique heritage-inspired toys and games.
+        </p>
+
+        <div id="certProjectTitle" class="cert-project">For Designing: "Pharaoh's Senet Passages"</div>
+
+        <div class="cert-footer-row">
+          <div>
+            <div id="certIssueDate" style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted);">September 10, 2026</div>
+            <div style="font-size: 0.75rem; color: #94A3B8;">Date of Issuance</div>
+          </div>
+          <div class="gold-seal">🏆</div>
+          <div>
+            <div style="font-weight: 800; font-size: 0.9rem; color: var(--color-lapis); border-top: 1px solid #CBD5E1; padding-top: 4px;">Challenge Director</div>
+            <div style="font-size: 0.75rem; color: #94A3B8;">National Heritage Innovation Council</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="btn btn-accent" id="btnPrintCert">Print / Save Certificate 🖨️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS CONTAINER -->
+  <div id="toastContainer"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Student Innovation Challenge</h3>
+          <p style="font-size: 0.9rem;">“Play. Create. Discover Our Heritage.”</p>
+          <p style="font-size: 0.85rem; margin-top: 12px; color: #64748B;">
+            Empowering students worldwide to explore history, traditional crafts, and cultural legacy through innovative toy and game design.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: #FFF; margin-bottom: 14px;">Quick Links</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem;">
+            <li><a href="#" onclick="window.switchTab('home'); return false;">Home</a></li>
+            <li><a href="#" onclick="window.switchTab('explore'); return false;">Explore Toys</a></li>
+            <li><a href="#" onclick="window.switchTab('submit'); return false;">Submit Idea</a></li>
+            <li><a href="#" onclick="window.switchTab('quests'); return false;">Quests & Quiz</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color: #FFF; margin-bottom: 14px;">Categories</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem;">
+            <li>History & Archaeology</li>
+            <li>Ancient Civilizations</li>
+            <li>Traditional Arts & Crafts</li>
+            <li>Folklore & Legends</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Student Innovation Challenge. Designed for educational excellence and cultural discovery.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODULE SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/heroCanvas.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/formWizard.js"></script>
+  <script src="js/miniGames.js"></script>
+  <script src="js/leaderboard.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
